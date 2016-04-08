@@ -33,14 +33,13 @@
 Summary:	Parent poms for jdbc project
 Name:		postgresql-jdbc-parent-poms
 Version:	1.0.5
-Release:	3%{?dist}
+Release:	4%{?dist}
 License:	BSD
 Group:		Applications/Databases
 URL:		https://github.com/pgjdbc/pgjdbc-parent-poms/
 
 Source0:	https://github.com/pgjdbc/pgjdbc-parent-poms/archive/REL%{version}.tar.gz
-Patch1:		standard_directory.patch
-Patch2:		build-conditions.patch
+Patch1:		build-conditions.patch
 
 BuildArch:	noarch
 BuildRequires:	java-devel >= 1:1.8
@@ -57,7 +56,6 @@ This package includes maven parent poms that are used by PostgreSQL JDBC driver.
 %setup -c -q
 mv -f %{archive_name}-REL%{version}/* .
 %patch1 -p1
-%patch2 -p1
 
 # remove any binary libs
 find -name "*.jar" -or -name "*.class" | xargs rm -f
@@ -73,6 +71,9 @@ find -name "*.jar" -or -name "*.class" | xargs rm -f
 %files -f .mfiles 
 
 %changelog
+* Fri Apr 08 2016 Pavel Raiskup <praiskup@redhat.com> - 1.0.5-4
+- drop the patch again, this issue is workaround'able in pgjdbc directly
+
 * Fri Apr 08 2016 Pavel Raiskup <praiskup@redhat.com> - 1.0.5-3
 - test the fix which could be proposed upstream
 
