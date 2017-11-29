@@ -1,0 +1,3 @@
+We finally managed to have CI for packaging directly in pgjdbc project:
+https://github.com/pgjdbc/pgjdbc/tree/69e3b8b2ef7fb80ece8df23b55855fa4208e8a00/packaging
+We use one spec file both for pgjdbc and pgjdbc-parent-poms.
